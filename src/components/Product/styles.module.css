@@ -1,0 +1,42 @@
+.productContainer {
+  width: 150px;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.productContainer:hover {
+  background-color: whitesmoke;
+}
+
+img {
+  width: 81px;
+  height: 145px;
+  padding: 5px;
+}
+
+.detailsContainer {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+span {
+  max-height: 34px;
+  font-size: 15px;
+  line-height: 17px;
+  color: black;
+  margin-bottom: 3px;
+}
+
+.detailsSKU {
+  color: #333;
+}
+
+.detailsPrice {
+  font-weight: bolder;
+}
