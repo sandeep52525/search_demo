@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 
 const Suggestions = ({ disp, data, keyword, setKeyword }) => {
   const temp_suggestions = ["active guard", "shoes", "t-shirts", "dress"];
+  const categories = data.categories;
   const pages = data.pages;
   const products = data.items;
 
@@ -39,22 +40,19 @@ const Suggestions = ({ disp, data, keyword, setKeyword }) => {
             <>
               <div className={styles.collections}>
                 <ul>
-                  {/* I didn't find any collections property in given "data" API 
-                  so accessed the "data.facets", so it will show
-                  "No Collections Found" mostly. */}
                   <li className={styles.suggestionsLabel}>Collections</li>
-                  {keyword === "" || data.facets == 0 ? (
+                  {keyword === "" || categories == null ? (
                     <li className={styles.suggestionsContent}>
                       No Collections Found.
                     </li>
                   ) : (
-                    data.facets?.map((facets) => (
+                    categories?.map((category) => (
                       <li
-                        key={facets}
+                        key={category.category_id}
                         className={styles.suggestionsContent}
-                        onMouseDown={() => setKeyword(data.facets)}
+                        onMouseDown={() => setKeyword(category.title)}
                       >
-                        {data.facets}
+                        {category.title}
                       </li>
                     ))
                   )}
@@ -69,7 +67,10 @@ const Suggestions = ({ disp, data, keyword, setKeyword }) => {
                     </li>
                   ) : (
                     pages?.map((page) => (
-                      <li key={page} className={styles.suggestionsContent}>
+                      <li
+                        key={page.page_id}
+                        className={styles.suggestionsContent}
+                      >
                         {page.title}
                       </li>
                     ))

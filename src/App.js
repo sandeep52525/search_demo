@@ -23,7 +23,7 @@ const App = () => {
 
   const handleFocus = () => {
     display === "none" && setDisplay("flex");
-    searchProducts(keyword);
+    //searchProducts(keyword);
   };
 
   const handleSubmit = (e) => {
@@ -34,7 +34,7 @@ const App = () => {
   useEffect(() => {
     searchProducts(keyword);
   }, [keyword]);
-
+console.log(data);
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
